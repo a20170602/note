@@ -1,12 +1,20 @@
+/*
+ * @Author: cjy
+ * @Date: 2022-02-01 03:15:29
+ * @LastEditTime: 2022-02-03 18:11:53
+ * @LastEditors: cjy
+ * @Description:
+ * @FilePath: /note/src/app/angular/angular.module.ts
+ */
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab2Page } from './tab2.page';
+import { AngularPage } from './angular.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab2PageRoutingModule } from './tab2-routing.module';
+import { AngularPageRoutingModule } from './angular-routing.module';
 
 @NgModule({
   imports: [
@@ -14,8 +22,8 @@ import { Tab2PageRoutingModule } from './tab2-routing.module';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab2PageRoutingModule
+    AngularPageRoutingModule
   ],
-  declarations: [Tab2Page]
+  declarations: [AngularPage]
 })
-export class Tab2PageModule {}
+export class AngularPageModule {}

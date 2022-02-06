@@ -1,0 +1,82 @@
+<!--
+ * @Author: cjy
+ * @Date: 2022-02-03 18:33:09
+ * @LastEditTime: 2022-02-07 00:25:02
+ * @LastEditors: cjy
+ * @Description: 
+ * @FilePath: /note/src/app/angular/module/angular-directive/angular-directive.component.html
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>指令</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div>
+    <ion-toolbar>
+      <ion-title>ngIf指令</ion-title>
+    </ion-toolbar>
+    <div class="ion-padding-top">
+      <ion-card-subtitle>普通使用</ion-card-subtitle>
+      <span *ngIf="true">true</span>
+      <span *ngIf="false">false</span>
+    </div>
+    <div>
+      <ion-card-subtitle class="ion-padding-top"
+        >then else使用</ion-card-subtitle
+      >
+      <ion-button (click)="show = !show" fill="clear" shape="round">
+        {{ show ? "then" : "else" }}
+      </ion-button>
+      <span *ngIf="show; then thenBlock; else elseBlock"></span>
+      <ng-template #thenBlock> 这里是then </ng-template>
+      <ng-template #elseBlock> 这里是else </ng-template>
+    </div>
+    <div>
+      <ion-card-subtitle>把条件结果保存在变量中</ion-card-subtitle>
+      <ion-button (click)="nextUser()">Next User</ion-button>
+      <br>
+      <div *ngIf="userObservable | async as user; else loading">
+        Hello {{user.last}}, {{user.first}}!
+      </div>
+      <ng-template #loading let-user>Waiting... (user is {{user|json}})</ng-template>
+    </div>
+  </div>
+
+  <div class="ion-margin-top">
+    <ion-toolbar>
+      <ion-title>ngFor指令</ion-title>
+    </ion-toolbar>
+    <div class="ion-padding-top">
+      <ion-card-subtitle>普通使用</ion-card-subtitle>
+      <ion-list>
+        <ion-item  *ngFor="let item of forName;index as i;first as f; last as l;odd as o; even as e">
+          <ion-label>item:{{item}} index:{{i}} 第一个:{{f}} 最后一个:{{l}} 单数:{{o}} 双数:{{e}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div>
+      <ion-card-subtitle class="ion-padding-top"
+        >进阶使用( trackBy 接受一个带两个参数（index 和 item）的函数。 如果给出了 trackBy，Angular 就会使用该函数的返回值来跟踪变化)</ion-card-subtitle
+      >
+      <ion-list>
+        <ion-item  *ngFor="let item of forName;index as i;first as f; last as l;odd as o; even as e;trackBy:trackIndex">
+          <ion-label>item:{{item}} index:{{i}} 第一个:{{f}} 最后一个:{{l}} 单数:{{o}} 双数:{{e}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+
+  <!-- <ngx-codemirror -->
+  <!-- [(ngModel)]="content" -->
+  <!-- [options]="{ -->
+  <!-- lineNumbers: true, -->
+  <!-- theme: 'material', -->
+  <!-- mode: 'markdown' -->
+  <!-- }" -->
+  <!-- ></ngx-codemirror> -->
+</ion-content>

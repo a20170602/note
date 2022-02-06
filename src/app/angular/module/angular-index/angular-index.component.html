@@ -1,0 +1,29 @@
+<!--
+ * @Author: cjy
+ * @Date: 2022-02-03 18:59:00
+ * @LastEditTime: 2022-02-03 23:24:41
+ * @LastEditors: cjy
+ * @Description: 
+ * @FilePath: /note/src/app/angular/module/angular-index/angular-index.component.html
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>angular学习</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+  <ion-list>
+    <!-- [routerLink]="['form']" -->
+    <ion-item button detail="true" [routerLink]="['directive']">
+        <ion-label>
+          <h3>指令</h3>
+        </ion-label>
+    </ion-item>
+    <ion-item button detail="true" [routerLink]="['form']">
+      <ion-label>
+        <h3>表单</h3>
+      </ion-label>
+  </ion-item>
+  </ion-list>
+</ion-content>
